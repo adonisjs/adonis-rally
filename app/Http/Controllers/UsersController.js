@@ -1,7 +1,6 @@
 'use strict'
 
 const User = use('App/Model/User')
-const Validator = use('Validator')
 const Validation = use('App/Services/Validation')
 const Hash = use('Hash')
 
