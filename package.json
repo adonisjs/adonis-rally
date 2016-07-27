@@ -7,7 +7,8 @@
     "start": "node --harmony_proxies server.js",
     "pretest": "ENV_PATH=.env.test ./ace migration:run",
     "test": "node --harmony_proxies bin/test.js",
-    "posttest": "ENV_PATH=.env.test ./ace migration:rollback"
+    "posttest": "ENV_PATH=.env.test ./ace migration:rollback",
+    "lint": "standard app/{**,**/**}/*.js tests/{*,**/*}.js"
   },
   "standard": {
     "globals": [
@@ -51,6 +52,7 @@
     "ms": "^0.7.1",
     "nodemon": "^1.9.1",
     "sqlite3": "^3.1.4",
+    "standard": "^7.1.2",
     "supertest": "^1.2.0",
     "yargs": "^4.8.1"
   }
