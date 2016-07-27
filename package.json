@@ -1,0 +1,56 @@
+{
+  "name": "adonis-app",
+  "version": "3.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch app --watch bootstrap --watch config --watch .env -x 'node --harmony_proxies' server.js",
+    "start": "node --harmony_proxies server.js",
+    "pretest": "ENV_PATH=.env.test ./ace migration:run",
+    "test": "node --harmony_proxies bin/test.js",
+    "posttest": "ENV_PATH=.env.test ./ace migration:rollback"
+  },
+  "standard": {
+    "globals": [
+      "make",
+      "use",
+      "describe",
+      "before",
+      "after",
+      "it",
+      "afterEach",
+      "beforeEach"
+    ]
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "adonis-ace": "^3.0.1",
+    "adonis-auth": "^1.0.0",
+    "adonis-commands": "^2.1.0",
+    "adonis-fold": "^3.0.2",
+    "adonis-framework": "^3.0.0",
+    "adonis-lucid": "^3.0.1",
+    "adonis-middleware": "^1.0.6",
+    "adonis-validation-provider": "^3.0.0",
+    "node-exceptions": "^1.0.1",
+    "slug": "^0.9.1"
+  },
+  "autoload": {
+    "App": "./app"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "co-mocha": "^1.1.2",
+    "colors": "^1.1.2",
+    "globby": "^6.0.0",
+    "lodash": "^4.13.1",
+    "mocha": "^2.5.3",
+    "ms": "^0.7.1",
+    "nodemon": "^1.9.1",
+    "sqlite3": "^3.1.4",
+    "supertest": "^1.2.0",
+    "yargs": "^4.8.1"
+  }
+}
