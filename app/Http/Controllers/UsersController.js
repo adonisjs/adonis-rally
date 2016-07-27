@@ -7,6 +7,13 @@ const Hash = use('Hash')
 
 class UsersController {
 
+  /**
+   * return user jwt token by validating
+   * their credentials
+   *
+   * @param  {Object} request
+   * @param  {Object} response
+   */
   * login (request, response) {
     const credentials = request.only('email', 'password')
     yield Validation.validate(credentials, User.loginRules, User.loginMessages)
