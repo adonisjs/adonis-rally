@@ -34,6 +34,7 @@
     "adonis-lucid": "^3.0.1",
     "adonis-middleware": "^1.0.6",
     "adonis-validation-provider": "^3.0.0",
+    "mysql": "^2.11.1",
     "node-exceptions": "^1.0.1",
     "slug": "^0.9.1"
   },
