@@ -42,6 +42,11 @@ npm run dev
 
 Tests are divided into multiple categories with Unit and Functional tests. `Unit tests` tests the isolated Repositories/Services, whereas `Functional tests` comes from outside in to test the controllers/routes.
 
+#### Testing Environment
+
+Testing environment is configured with the help of `.env.test` file. You are free to add/modify any variables here and they will be picked while running tests.
+
+#### Running Tests
 To run all tests
 ```bash
 npm run test
