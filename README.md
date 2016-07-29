@@ -26,10 +26,12 @@ Setting up the project is quite easy. Start by cloning the repo.
 git clone https://github.com/adonisjs/adonis-rally
 ```
 
-#### copy .env file
+#### make install
+
+Make install will perform all the require steps to setup the application for you.
 
 ```bash
-cp .env.example .env
+make install
 ```
 
 #### running the server
@@ -61,3 +63,9 @@ To run functional tests
 ```bash
 npm run test -- --filter=functional
 ```
+
+
+## Contributing
+
+Feel free to fork and work on the missing parts of the application and create a PR for same. Make sure to work on small pieces of code with decent testing coverage before creating a PR.
+
