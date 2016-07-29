@@ -6,14 +6,23 @@ const Route = use('Route')
  * API specific routes
  */
 Route.group('api', () => {
-  Route.get('/questions', 'QuestionsController.index')
-  Route.post('/questions', 'QuestionsController.store').middleware('auth')
-  Route.get('/questions/:slug', 'QuestionsController.show')
-  Route.put('/questions/:id', 'QuestionsController.update').middleware('auth')
-  Route.delete('/questions/:id', 'QuestionsController.destroy').middleware('auth')
+  Route
+    .resource('questions', 'QuestionsController')
+    .only(['index', 'store', 'update', 'destroy'])
+    .middleware({
+      auth: ['store', 'update', 'destroy']
+    })
+    .addCollection(':slug', 'GET', (collection) => {
+      collection.bindAction('QuestionsController.show')
+    })
+    .addMember('answers', 'GET', (member) => {
+      member.bindAction('QuestionsController.getAnswers')
+    })
+    .addMember('answers', 'POST', (member) => {
+      member.bindAction('QuestionsController.saveAnswer').middleware('auth')
+    })
+
   Route.get('/channels', 'ChannelsController.index')
-  Route.post('/questions/:id/answers', 'QuestionsController.saveAnswer').middleware('auth')
-  Route.get('/questions/:id/answers', 'QuestionsController.getAnswers')
   Route.put('answers/:id', 'AnswersController.update')
   Route.delete('answers/:id', 'AnswersController.delete')
 })
