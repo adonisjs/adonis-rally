@@ -13,11 +13,21 @@ class User extends Lucid {
     return ['password']
   }
 
+  /**
+   * implementing boot method to add hooks to
+   * the model
+   */
   static boot () {
     super.boot()
     this.addHook('beforeCreate', 'User.encryptPassword')
   }
 
+  /**
+   * rules to be used when validating user credentials
+   * for login
+   *
+   * @return {Object}
+   */
   static get loginRules () {
     return {
       email: 'required|email',
@@ -25,6 +35,11 @@ class User extends Lucid {
     }
   }
 
+  /**
+   * login validation messages
+   *
+   * @return {Object}
+   */
   static get loginMessages () {
     return {
       'email.required': 'Email is required to login to your account',
