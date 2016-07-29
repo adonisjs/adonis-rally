@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "co": "^4.6.0",
     "co-mocha": "^1.1.2",
     "colors": "^1.1.2",
     "globby": "^6.0.0",
@@ -53,7 +54,7 @@
     "nodemon": "^1.9.1",
     "sqlite3": "^3.1.4",
     "standard": "^7.1.2",
-    "supertest": "^1.2.0",
+    "supertest": "^2.0.0",
     "yargs": "^4.8.1"
   }
 }
