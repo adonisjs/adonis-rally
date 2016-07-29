@@ -79,11 +79,24 @@ class QuestionsController {
    * @param  {Object} response
    */
   * saveAnswer (request, response) {
-    const answer = request.only('body', 'question')
-    yield Validation.validate(answer, Answer.rules, Answer.messages)
-    const question = yield QuestionRepository.find(answer.question)
-    const newAnswer = yield QuestionRepository.addAnswer(answer.body, question, request.authUser)
+    const body = request.input('body')
+    yield Validation.validate({body: body}, Answer.rules, Answer.messages)
+    const question = yield QuestionRepository.find(request.param('id'))
+    const newAnswer = yield QuestionRepository.addAnswer(body, question, request.authUser)
     response.ok({message: 'Answer added successfully', status: 200, data: newAnswer})
+  }
+
+  /**
+   * paginates over answers for a given question
+   *
+   * @param  {Object} request
+   * @param  {Object} response
+   */
+  * getAnswers (request, response) {
+    const currentPage = parseInt(request.input('page', 1))
+    const question = yield QuestionRepository.find(request.param('id'))
+    const answers = yield question.answers().paginate(currentPage)
+    response.ok(answers)
   }
 
 }

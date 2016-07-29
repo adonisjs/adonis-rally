@@ -73,6 +73,15 @@ class Question extends Lucid {
     return this.belongsTo('App/Model/User')
   }
 
+  /**
+   * relationship with answers
+   *
+   * @return {Object} Instance of hasMany relation
+   */
+  answers () {
+    return this.hasMany('App/Model/Answer')
+  }
+
 }
 
 module.exports = Question
