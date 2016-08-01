@@ -69,3 +69,21 @@ npm run test -- --filter=functional
 
 Feel free to fork and work on the missing parts of the application and create a PR for same. Make sure to work on small pieces of code with decent testing coverage before creating a PR.
 
+## Todo 
+
+- [x] User Registeration/Send Verification Email
+- [ ] Email verification
+- [ ] Re-send verification email
+- [x] Login
+- [x] Create a new question (when loggedin)
+- [x] Paginate questions on the homepage.
+- [ ] Sort questions by **latest** and **popular** on homepage
+- [ ] Filter questions by author/channel.
+- [x] Update question (when loggedin and question owner)
+- [x] Delete question (when loggedin and question owner)
+- [x] View a single question.
+- [x] Add answer to a given question (when loggedin)
+- [x] Paginate answers on a given question.
+- [ ] Edit/Update answer (when loggedin and answer owner)
+- [ ] Delete answer (when loggedin and answer owner)
+- [ ] Mark answer as a best answer.
