@@ -101,3 +101,16 @@ emailParser.getEmail = function * (emailFile, position) {
   yield mailBody.parseBody(email)
   return mailBody
 }
+
+/**
+ * cleans the email log file
+ *
+ * @param {String} emailFile
+ *
+ * @throws {Error} If unable to write to file
+ *
+ * @yield {Boolean}
+ */
+emailParser.clean = function * (emailFile) {
+  return yield fs.writeFile(emailFile, '')
+}

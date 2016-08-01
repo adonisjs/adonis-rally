@@ -9,6 +9,14 @@ const emailParser = require('../parsers/email')
 require('co-mocha')
 
 describe('Mailer', function () {
+  before(function * () {
+    yield emailParser.clean(Config.get('mail.log.toPath'))
+  })
+
+  after(function * () {
+    yield emailParser.clean(Config.get('mail.log.toPath'))
+  })
+
   it('should throw an error when instance of user model is not passed', function * () {
     try {
       yield Mailer.sendVerificationEmail({})
