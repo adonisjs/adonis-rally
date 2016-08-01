@@ -34,3 +34,4 @@ Route.group('api', () => {
  * regardless of the API version.
  */
 Route.post('/login', 'UsersController.login')
+Route.post('/register', 'UsersController.register')

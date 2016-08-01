@@ -19,3 +19,4 @@ const Event = use('Event')
 
 Event.when('Http.error.*', 'Http.handleError')
 Event.when('Http.start', 'Http.onStart')
+Event.when('user:registered', 'Mail.sendVerificationEmail')

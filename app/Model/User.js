@@ -20,6 +20,7 @@ class User extends Lucid {
   static boot () {
     super.boot()
     this.addHook('beforeCreate', 'User.encryptPassword')
+    this.addHook('beforeCreate', 'User.setVerificationToken')
   }
 
   /**
@@ -45,6 +46,34 @@ class User extends Lucid {
       'email.required': 'Email is required to login to your account',
       'email.email': 'Enter a valid email address to login to your account',
       'password.required': 'Enter your account password'
+    }
+  }
+
+  /**
+   * rules to be used when creating a new account
+   * for a user.
+   *
+   * @return {Object}
+   */
+  static get newUserRules () {
+    return {
+      email: 'required|email|unique:users',
+      password: 'required'
+    }
+  }
+
+  /**
+   * messages to be printed when validation fails
+   * for user registeration.
+   *
+   * @return {Object}
+   */
+  static get newUserMessages () {
+    return {
+      'email.required': 'Enter email address to be used for login',
+      'email.email': 'Email address is not valid',
+      'email.unique': 'There\'s already an account with this email address',
+      'password.required': 'Choose password for your account'
     }
   }
 

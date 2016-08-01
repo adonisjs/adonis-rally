@@ -62,7 +62,6 @@ class DatabaseSeeder {
     ]
 
     yield Channel.createMany(channels)
-
   }
 
 }
