@@ -76,6 +76,14 @@ module.exports = function (callback) {
       */
       const Server = use('Adonis/Src/Server')
       callback(Server)
+
+      /*
+      |--------------------------------------------------------------------------
+      | Firing Start Event
+      |--------------------------------------------------------------------------
+      */
+      const Event = use('Event')
+      Event.fire('Http.start')
     })
     .catch((error) => console.error(error.stack))
 }

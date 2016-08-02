@@ -35,7 +35,7 @@ class Question extends Lucid {
     return {
       title: 'required|max:100',
       body: 'required',
-      channel: 'required|integer'
+      channel: 'required|numeric'
     }
   }
 
@@ -51,7 +51,7 @@ class Question extends Lucid {
       'title.max': 'Title should be {{argument.0}} characters long',
       'body.required': 'Write some description of your question',
       'channel.required': 'It is required to choose a channel for this question',
-      'channel.integer': 'Invalid channel id'
+      'channel.numeric': 'Invalid channel id'
     }
   }
 

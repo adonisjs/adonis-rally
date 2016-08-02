@@ -62,13 +62,6 @@ describe('User', function () {
   })
 
   it('should register a user and send registeration email', function * () {
-    const Event = use('Event')
-    let eventFired = false
-    Event.removeListeners('user:registered') // removing app listeners during test
-    Event.on('user:registered', function * () {
-      eventFired = true
-    })
-
     const response = yield request(baseUrl)
       .post('register')
       .send({email: 'newuser@adonisjs.com', password: 'secret'})
@@ -77,8 +70,28 @@ describe('User', function () {
 
     assert.equal(response.body.status, 200)
     assert.equal(response.body.message, 'Account created successfully')
-    assert.equal(response.body.data.status, 'pending-verification')
-    assert.match(response.body.data.verification_code, /[\w\d]{8}-[\w\d]{4}-[\w\d]{4}-[\w\d]{4}-[\w\d]{12}/)
-    assert.equal(eventFired, true)
+  })
+
+  it('should return 404 when unable to fetch a user with given token', function * () {
+    const response = yield request(baseUrl)
+      .get('account/verify')
+      .expect('Content-Type', /json/)
+      .expect(404)
+
+    assert.equal(response.body.message, 'Cannot find user with verification_code')
+    assert.equal(response.body.status, 404)
+  })
+
+  it('should return 200 when able to verify user account with a given token', function * () {
+    const user = use('Factory').model('App/Model/User').make()
+    yield user.save()
+    const reFetchUser = yield use('App/Model/User').find(user.id)
+    const response = yield request(baseUrl)
+      .get(`account/verify?token=${reFetchUser.verification_code}`)
+      .expect('Content-Type', /json/)
+      .expect(200)
+
+    assert.equal(response.body.message, 'Account verified successfully')
+    assert.equal(response.body.status, 200)
   })
 })

@@ -140,7 +140,7 @@ describe('Question', function () {
       .send({title: 'Adonis 102', body: 'Here you go', channel: 'foo'})
       .expect('Content-Type', /json/)
       .expect(400)
-    assert.deepEqual(response.body, {status: 400, message: 'Validation failed', fields: [{field: 'channel', message: 'Invalid channel id', validation: 'integer'}]})
+    assert.deepEqual(response.body, {status: 400, message: 'Validation failed', fields: [{field: 'channel', message: 'Invalid channel id', validation: 'numeric'}]})
   })
 
   it('should return error when channel does not exists', function * () {

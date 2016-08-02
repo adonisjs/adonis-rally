@@ -72,8 +72,8 @@ Feel free to fork and work on the missing parts of the application and create a 
 ## Todo 
 
 - [x] User Registeration/Send Verification Email
-- [ ] Email verification
-- [ ] Re-send verification email
+- [x] Email verification
+- [x] Re-send verification email
 - [x] Login
 - [x] Create a new question (when loggedin)
 - [x] Paginate questions on the homepage.

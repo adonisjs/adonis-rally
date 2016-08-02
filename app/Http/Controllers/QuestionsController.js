@@ -2,7 +2,7 @@
 
 const Question = use('App/Model/Question')
 const Answer = use('App/Model/Answer')
-const Validation = use('App/Services/Validation')
+const Validator = use('App/Services/Validator')
 const QuestionRepository = make('App/Repositories/Question')
 const ChannelRepository = make('App/Repositories/Channel')
 
@@ -29,7 +29,7 @@ class QuestionsController {
    */
   * store (request, response) {
     const question = request.only('title', 'body', 'channel')
-    yield Validation.validate(question, Question.rules, Question.messages)
+    yield Validator.validate(question, Question.rules, Question.messages)
     const channel = yield ChannelRepository.find(question.channel)
     const newQuestion = yield QuestionRepository.add(question.title, question.body, channel, request.authUser)
     response.ok({message: 'Question created successfully', status: 200, data: newQuestion})
@@ -55,7 +55,7 @@ class QuestionsController {
    */
   * update (request, response) {
     const updateAttributes = request.only('title', 'body', 'channel')
-    yield Validation.validate(updateAttributes, Question.rules, Question.messages)
+    yield Validator.validate(updateAttributes, Question.rules, Question.messages)
     const channel = yield ChannelRepository.find(updateAttributes.channel)
     const question = yield QuestionRepository.update(request.param('id'), {title: updateAttributes.title, body: updateAttributes.body}, request.authUser, channel)
     response.ok({message: 'Question updated successfully', status: 200, data: question})
@@ -80,7 +80,7 @@ class QuestionsController {
    */
   * saveAnswer (request, response) {
     const body = request.input('body')
-    yield Validation.validate({body: body}, Answer.rules, Answer.messages)
+    yield Validator.validate({body: body}, Answer.rules, Answer.messages)
     const question = yield QuestionRepository.find(request.param('id'))
     const newAnswer = yield QuestionRepository.addAnswer(body, question, request.authUser)
     response.ok({message: 'Answer added successfully', status: 200, data: newAnswer})

@@ -36,3 +36,5 @@ Route.group('api', () => {
 Route.on('/').render('welcome')
 Route.post('/login', 'UsersController.login')
 Route.post('/register', 'UsersController.register')
+Route.get('/account/verify', 'UsersController.verifyAccount')
+Route.post('/email/send', 'UsersController.sendVerificationEmail')
