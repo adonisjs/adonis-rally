@@ -5,7 +5,6 @@ body {
   -ms-font-feature-settings: "kern", "liga", "pnum";
   font-feature-settings: "kern", "liga", "pnum";
   -webkit-font-smoothing: antialiased;
-  font-weight: lighter;
   background: #ffffff;
 }
 
@@ -14,92 +13,31 @@ body {
   margin: 0;
 }
 
-.__banner {
-  background: #744d82;
-  background: -moz-radial-gradient(top, ellipse cover, #744d82 11%, #503d67 99%, #503d67 100%);
-  background: -webkit-gradient(radial, top center, 0, center center, 100%, color-stop(11%, #744d82), color-stop(99%, #503d67), color-stop(100%, #503d67));
-  background: -webkit-radial-gradient(top, ellipse cover, #744d82 11%, #503d67 99%, #503d67 100%);
-  background: -o-radial-gradient(top, ellipse cover, #744d82 11%, #503d67 99%, #503d67 100%);
-  background: -ms-radial-gradient(top, ellipse cover, #744d82 11%, #503d67 99%, #503d67 100%);
-  background: radial-gradient(ellipse at top, #744d82 11%, #503d67 99%, #503d67 100%);
+.__wrapper {
+  width: 960px;
+  padding: 0 20px;
+  margin: auto;
 }
 
-.__banner {
-  height: 80vh;
-  width: 100%;
-  padding-bottom: 30px;
-  text-align: center;
-  display: table;
-}
-
-.__banner .banner__inner {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.__banner .banner__inner h1 {
-  font-weight: 500;
-  font-size: 180px;
-  color: #ffffff;
-}
-
-.__banner .banner__inner h2 {
-  margin-bottom: 25px;
-  text-align: center;
-  letter-spacing: 3px;
-  margin-top: 80px;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: 16px;
-  color: #ffffff;
-}
-
-.__banner .banner__inner p,
-.__banner .banner__inner a {
-  color: #fff;
-  font-size: 24px;
+h2.title {
+  font-size: 50px;
   font-weight: 300;
+  margin: 20px 0;
 }
 
-.__banner .banner__inner h2 span {
-  display: inline-block;
-  margin: 0 30px;
+h3.subtitle {
+  font-size: 40px;
+  font-weight: 300;
+  margin: 15px 0;
 }
 
-.__footer {
-  text-align: center;
-  position: absolute;
-  bottom: 30px;
-  margin: auto;
-  right: 0;
-  left: 0;
+.__wrapper p {
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 25px;
 }
 
-.__footer ul {
-  display: table;
-  margin: auto;
-}
-
-.__footer li {
-  border-left: solid 2px #ccc;
-  display: table-cell;
-}
-
-.__footer li:first-child {
-  border: none;
-}
-
-.__footer li a {
-  transition: opacity 0.5s;
-  text-decoration: none;
-  display: inline-block;
-  font-weight: bold;
-  padding: 0px 30px;
-  font-size: 13px;
-  opacity: 0.8;
-  color: #ccc;
-}
-
-.__footer li a:hover {
-  opacity: 1;
+.__wrapper hr {
+  border: 1px solid #e8e8e8;
+  margin: 40px 0;
 }

@@ -33,5 +33,6 @@ Route.group('api', () => {
  * Login and signup routes. They will be global
  * regardless of the API version.
  */
+Route.on('/').render('welcome')
 Route.post('/login', 'UsersController.login')
 Route.post('/register', 'UsersController.register')
