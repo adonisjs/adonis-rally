@@ -64,6 +64,22 @@ To run functional tests
 npm run test -- --filter=functional
 ```
 
+## Commands
+
+#### make install
+
+To setup the project for first time. It will run following commands
+
+1. Copy .env.example to env `cp .env.example .env`.
+2. Install package from **npm**. `npm install`.
+3. Run all migrations. `node --harmony_proxies ace migration:refresh`
+4. Seed database with a dummy user and channels. `node --harmony_proxies ace db:seed`
+
+#### make update
+
+Update the project by removing and re-installing all dependencies and re-running migrations.
+
+:fire: `update` command will clear the database entries, so make sure you run it carefully.
 
 ## Contributing
 
