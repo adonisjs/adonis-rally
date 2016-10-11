@@ -21,43 +21,52 @@ class DatabaseSeeder {
     // yield Factory.model('App/Model/User').create(5)
     const channels = [
       {
-        name: 'Lucid'
+        name: 'Lucid',
+        bg_color: '#FF4136'
       },
       {
-        name: 'Routing'
+        name: 'Routing',
+        bg_color: '#39CCCC'
       },
       {
-        name: 'Cookies & Sessions'
+        name: 'Cookies & Sessions',
+        bg_color: '#3D9970'
       },
       {
-        name: 'FAQ'
+        name: 'FAQ',
+        bg_color: '#85144b'
       },
       {
-        name: 'Authentication'
+        name: 'Authentication',
+        bg_color: '#FF851B'
       },
       {
-        name: 'Ace'
+        name: 'Ace',
+        bg_color: '#0074D9'
       },
       {
-        name: 'General'
+        name: 'General',
+        bg_color: '#111111'
       },
       {
-        name: 'Views & Templates'
+        name: 'Views & Templates',
+        bg_color: '#FFDC00'
       },
       {
-        name: 'Error Handling'
+        name: 'Database',
+        bg_color: '#01FF70'
       },
       {
-        name: 'Database'
+        name: 'Redis',
+        bg_color: '#FF4136'
       },
       {
-        name: 'Redis'
+        name: 'Mail',
+        bg_color: '#001f3f'
       },
       {
-        name: 'Mail'
-      },
-      {
-        name: 'Service Providers'
+        name: 'Service Providers',
+        bg_color: '#B10DC9'
       }
     ]
 
