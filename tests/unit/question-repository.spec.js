@@ -19,7 +19,7 @@ describe('Question Repository', function () {
     try {
       yield QuestionRepository.add('Adonis 101', 'This is my first question', {}, {})
     } catch (e) {
-      assert.match(e.message, /Associate accepts an instance of related model/)
+      assert.match(e.message, /E_INVALID_RELATION_INSTANCE: associate accepts an instance of related model/)
     }
   })
 
@@ -29,7 +29,7 @@ describe('Question Repository', function () {
       const User = use('App/Model/User')
       yield QuestionRepository.add('Adonis 101', 'This is my first question', new Channel(), new User())
     } catch (e) {
-      assert.match(e.message, /Cannot associate an unsaved related model/)
+      assert.match(e.message, /E_UNSAVED_MODEL_INSTANCE: Cannot perform associate on Channel model since Question instance is unsaved/)
     }
   })
 
@@ -38,7 +38,7 @@ describe('Question Repository', function () {
       const channel = yield use('App/Model/Channel').create({name: 'Lucid'})
       yield QuestionRepository.add('Adonis 101', 'This is my first question', channel, {})
     } catch (e) {
-      assert.match(e.message, /Associate accepts an instance of related model/)
+      assert.match(e.message, /E_INVALID_RELATION_INSTANCE: associate accepts an instance of related model/)
     }
   })
 
@@ -48,7 +48,7 @@ describe('Question Repository', function () {
       const User = use('App/Model/User')
       yield QuestionRepository.add('Adonis 101', 'This is my first question', channel, new User())
     } catch (e) {
-      assert.match(e.message, /Cannot associate an unsaved related model/)
+      assert.match(e.message, /E_UNSAVED_MODEL_INSTANCE: Cannot perform associate on User model since Question instance is unsaved/)
     }
   })
 
@@ -173,7 +173,7 @@ describe('Question Repository', function () {
       yield QuestionRepository.addAnswer('I like what you said', {})
       assert.equal(true, false)
     } catch (e) {
-      assert.equal(e.message, 'Associate accepts an instance of related model')
+      assert.equal(e.message, 'E_INVALID_RELATION_INSTANCE: associate accepts an instance of related model')
     }
   })
 
@@ -182,7 +182,7 @@ describe('Question Repository', function () {
       yield QuestionRepository.addAnswer('I like what you said', new Question())
       assert.equal(true, false)
     } catch (e) {
-      assert.equal(e.message, 'Cannot associate an unsaved related model')
+      assert.equal(e.message, 'E_UNSAVED_MODEL_INSTANCE: Cannot perform associate on Question model since Answer instance is unsaved')
     }
   })
 
@@ -192,7 +192,7 @@ describe('Question Repository', function () {
       yield QuestionRepository.addAnswer('I like what you said', question, {})
       assert.equal(true, false)
     } catch (e) {
-      assert.equal(e.message, 'Associate accepts an instance of related model')
+      assert.equal(e.message, 'E_INVALID_RELATION_INSTANCE: associate accepts an instance of related model')
     }
   })
 
@@ -203,7 +203,7 @@ describe('Question Repository', function () {
       yield QuestionRepository.addAnswer('I like what you said', question, new User())
       assert.equal(true, false)
     } catch (e) {
-      assert.equal(e.message, 'Cannot associate an unsaved related model')
+      assert.equal(e.message, 'E_UNSAVED_MODEL_INSTANCE: Cannot perform associate on User model since Answer instance is unsaved')
     }
   })
 
