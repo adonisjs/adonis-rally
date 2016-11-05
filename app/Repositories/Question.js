@@ -73,11 +73,9 @@ class QuestionRepository {
    * @public
    */
   * find (id) {
-    const question = yield this.Question.find(id)
-    if (!question) {
+    return yield this.Question.findOrFail(id, () => {
       throw new Exceptions.ApplicationException('Cannot find question with given id', 404)
-    }
-    return question
+    })
   }
 
   /**

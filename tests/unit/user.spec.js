@@ -31,17 +31,6 @@ describe('User', function () {
     }
   })
 
-  it('show throw custom exception when unable to find row for a given field', function * () {
-    try {
-      yield userRepository.findByOrFail('verification_code', 1200200301, function () {
-        throw new Error('Custom exception')
-      })
-      assert.equal(true, false)
-    } catch (e) {
-      assert.equal(e.message, 'Custom exception')
-    }
-  })
-
   it('show return user model instance when able to find a user with verification code', function * () {
     const user = use('Factory').model('App/Model/User').make()
     yield user.save()

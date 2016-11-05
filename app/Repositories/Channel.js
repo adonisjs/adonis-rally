@@ -23,11 +23,9 @@ class Channel {
    * @public
    */
   * find (id) {
-    const channel = yield this.Channel.find(id)
-    if (!channel) {
+    return yield this.Channel.findOrFail(id, () => {
       throw new Exceptions.ApplicationException('Cannot find channel with given id', 404)
-    }
-    return channel
+    })
   }
 
 }

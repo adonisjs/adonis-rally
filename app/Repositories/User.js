@@ -58,16 +58,10 @@ class UserRepository {
    *
    * @public
    */
-  * findByOrFail (field, value, callback) {
-    const user = yield this.User.findBy(field, value)
-    if (!user) {
-      if (typeof (callback) === 'function') {
-        callback()
-        return
-      }
+  * findByOrFail (field, value) {
+    return yield this.User.findByOrFail(field, value, function () {
       throw new Exceptions.ApplicationException(`Cannot find user with ${field}`, 404)
-    }
-    return user
+    })
   }
 
   /**
@@ -82,7 +76,7 @@ class UserRepository {
    * @return {Object}
    */
   * findViaCredentials (email, password) {
-    const user = yield this.findByOrFail('email', email, function () {
+    const user = yield this.User.findByOrFail('email', email, function () {
       throw new Exceptions.ApplicationException('Unable to find any account with this email address', 400)
     })
     const isMatchedPassword = yield Hash.verify(password, user.password)
