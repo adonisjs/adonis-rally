@@ -38,7 +38,7 @@
     "mocha": "^3.2.0",
     "mysql": "^2.12.0",
     "node-exceptions": "^1.0.3",
-    "node-uuid": "^1.4.7",
+    "node-uuid": "1.4.7",
     "slug": "^0.9.1",
     "standard": "^8.6.0",
     "yargs": "^6.5.0"
