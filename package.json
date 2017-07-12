@@ -47,7 +47,7 @@
     "App": "./app"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.1.0",
     "co": "^4.6.0",
     "co-fs": "^1.2.0",
     "co-mocha": "^1.1.3",
