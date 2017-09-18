@@ -41,7 +41,7 @@
     "node-uuid": "^1.4.7",
     "slug": "^0.9.1",
     "standard": "^8.6.0",
-    "yargs": "^6.5.0"
+    "yargs": "^9.0.1"
   },
   "autoload": {
     "App": "./app"
