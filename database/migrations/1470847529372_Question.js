@@ -7,8 +7,8 @@ class QuestionSchema extends Schema {
   up () {
     this.create('questions', (table) => {
       table.increments()
-      table.integer('channel_id').references('id').inTable('channels')
-      table.integer('user_id').references('id').inTable('users')
+      table.integer('channel_id').unsigned().references('id').inTable('channels')
+      table.integer('user_id').unsigned().references('id').inTable('users')
       table.string('slug').unique()
       table.string('title').notNullable()
       table.text('body', 'longtext').notNullable()
